@@ -6,7 +6,7 @@ Conforme a descrição do projetos desenvolveremos o conjunto de dados obtidos d
 * Guilherme Bezzerra dos santos
 * James Castro
 * Lucas Teixeira Souza
-* Marcel Garcia
+* Marcela Garcia
  
 ## Instruções de uso:
 
