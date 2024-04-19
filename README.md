@@ -1,4 +1,4 @@
-# Desafio - ETL para comnsumir noticias do NewsAPI
+# Desafio - Analytic engeneering
 Conforme a descrição do projetos desenvolveremos o conjunto de dados obtidos do airbnb conforme a estrutura medalhão (bonze>silver>gold)
 
 ## Desenvolvido por:
