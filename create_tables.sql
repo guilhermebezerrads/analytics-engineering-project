@@ -78,7 +78,7 @@ CREATE TABLE listings (
 
 CREATE TABLE reviews (
     listing_id BIGINT REFERENCES listings(id),
-    id INTEGER PRIMARY KEY,
+    id BIGINT PRIMARY KEY,
     date DATE,
     reviewer_id INTEGER,
     reviewer_name VARCHAR(500),
@@ -91,7 +91,7 @@ CREATE TABLE calendar (
     available BOOLEAN NOT NULL,
     price VARCHAR,
     adjusted_price DECIMAL,
-    minimum_nights INTEGER NOT NULL,
-    maximum_nights INTEGER NOT NULL,
+    minimum_nights INTEGER
+    maximum_nights INTEGER,
     PRIMARY KEY (listing_id, date)
 );
