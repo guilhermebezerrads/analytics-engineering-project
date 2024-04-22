@@ -91,7 +91,7 @@ CREATE TABLE calendar (
     available BOOLEAN NOT NULL,
     price VARCHAR,
     adjusted_price DECIMAL,
-    minimum_nights INTEGER,
+    minimum_nights INTEGER NOT NULL,
     maximum_nights INTEGER NOT NULL,
     PRIMARY KEY (listing_id, date)
 );
