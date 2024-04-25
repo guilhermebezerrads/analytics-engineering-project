@@ -1,11 +1,7 @@
-with source_listings_info as (
-    select * from {{source('listings_bronze','listings_bronze')}}
-),
-final as
+with listings_silver as
 (
-    select *
+    select 
     from listings_bronze
 )
-
 
 select * from final
