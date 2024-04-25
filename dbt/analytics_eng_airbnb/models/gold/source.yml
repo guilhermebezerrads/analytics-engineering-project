@@ -1,0 +1,13 @@
+
+version: 2
+
+models:
+  - name: listings_silver
+    description: "A starter dbt model"
+    database: myDBProject
+    schema: public
+    columns:
+      - name: id
+        description: "The primary key for this table"
+
+

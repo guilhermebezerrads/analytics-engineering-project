@@ -1,0 +1,87 @@
+[0m19:55:10.435377 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11032c9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110340a10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110341390>]}
+
+
+============================== 19:55:10.438578 | aca3558c-24e6-45cc-bfaf-fb4c3e9368f9 ==============================
+[0m19:55:10.438578 [info ] [MainThread]: Running with dbt=1.7.13
+[0m19:55:10.438978 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/Users/marcela.garcia/Documents/GitHub/analytics-engineering-project/dbt/analytics_eng_airbnb/logs', 'profiles_dir': '/Users/marcela.garcia/.dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt run', 'send_anonymous_usage_stats': 'True'}
+[0m19:55:10.706732 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'aca3558c-24e6-45cc-bfaf-fb4c3e9368f9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110bca350>]}
+[0m19:55:10.766660 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'aca3558c-24e6-45cc-bfaf-fb4c3e9368f9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1102f4610>]}
+[0m19:55:10.767499 [info ] [MainThread]: Registered adapter: postgres=1.7.13
+[0m19:55:10.777397 [debug] [MainThread]: checksum: 6c24e2ee36a42cedd7e5de2827d214776eb7a8e8f425f6d8acb06c31add0afef, vars: {}, profile: , target: , version: 1.7.13
+[0m19:55:10.778108 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m19:55:10.778393 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'aca3558c-24e6-45cc-bfaf-fb4c3e9368f9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110c655d0>]}
+[0m19:55:11.237550 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'listings' in the 'models' section of file 'models/bronze/source.yml'
+[0m19:55:11.304885 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'listings' in the 'models' section of file 'models/gold/source.yml'
+[0m19:55:11.312194 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.analytics_eng_airbnb.listings_bronze' (models/bronze/listings_bronze.sql) depends on a source named 'listings.listings' which was not found
+[0m19:55:11.313625 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.9283976, "process_user_time": 1.49706, "process_kernel_time": 0.190367, "process_mem_max_rss": "118980608", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m19:55:11.314044 [debug] [MainThread]: Command `dbt run` failed at 19:55:11.313967 after 0.93 seconds
+[0m19:55:11.314293 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1102f37d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110343150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1114087d0>]}
+[0m19:55:11.314529 [debug] [MainThread]: Flushing usage events
+[0m20:10:03.596536 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x124cc6690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x124d7ccd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x124d7d650>]}
+
+
+============================== 20:10:03.599539 | fdea44a0-febe-4bcb-9d32-afeb5a40a298 ==============================
+[0m20:10:03.599539 [info ] [MainThread]: Running with dbt=1.7.13
+[0m20:10:03.599897 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': '/Users/marcela.garcia/Documents/GitHub/analytics-engineering-project/dbt/analytics_eng_airbnb/logs', 'profiles_dir': '/Users/marcela.garcia/.dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt run --models silver', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m20:10:03.738248 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'fdea44a0-febe-4bcb-9d32-afeb5a40a298', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x125250cd0>]}
+[0m20:10:03.795632 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'fdea44a0-febe-4bcb-9d32-afeb5a40a298', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x124d68d10>]}
+[0m20:10:03.797045 [info ] [MainThread]: Registered adapter: postgres=1.7.13
+[0m20:10:03.806700 [debug] [MainThread]: checksum: 6c24e2ee36a42cedd7e5de2827d214776eb7a8e8f425f6d8acb06c31add0afef, vars: {}, profile: , target: , version: 1.7.13
+[0m20:10:03.807306 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m20:10:03.807570 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'fdea44a0-febe-4bcb-9d32-afeb5a40a298', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1256f5390>]}
+[0m20:10:04.237810 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'listings' in the 'models' section of file 'models/bronze/source.yml'
+[0m20:10:04.298969 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found two schema.yml entries for the same resource named listings_silver. Resources and their associated columns may only be described a single time. To fix this, remove the resource entry for listings_silver in one of these files:
+   - models/gold/models.yml
+  models/gold/source.yml
+[0m20:10:04.301243 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.75237256, "process_user_time": 1.477007, "process_kernel_time": 0.181361, "process_mem_max_rss": "120127488", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m20:10:04.301664 [debug] [MainThread]: Command `dbt run` failed at 20:10:04.301580 after 0.75 seconds
+[0m20:10:04.301925 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x124d7d690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1258ac090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x124d68cd0>]}
+[0m20:10:04.302177 [debug] [MainThread]: Flushing usage events
+[0m21:08:09.489829 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112368390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1122c61d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11237d150>]}
+
+
+============================== 21:08:09.492900 | ba3780f5-9490-4f0a-a9ee-54c559a6712b ==============================
+[0m21:08:09.492900 [info ] [MainThread]: Running with dbt=1.7.13
+[0m21:08:09.493277 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/marcela.garcia/.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/Users/marcela.garcia/Documents/GitHub/analytics-engineering-project/dbt/analytics_eng_airbnb/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt run', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m21:08:09.705883 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ba3780f5-9490-4f0a-a9ee-54c559a6712b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112e525d0>]}
+[0m21:08:09.767583 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ba3780f5-9490-4f0a-a9ee-54c559a6712b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1128b7810>]}
+[0m21:08:09.769063 [info ] [MainThread]: Registered adapter: postgres=1.7.13
+[0m21:08:09.778102 [debug] [MainThread]: checksum: 6c24e2ee36a42cedd7e5de2827d214776eb7a8e8f425f6d8acb06c31add0afef, vars: {}, profile: , target: , version: 1.7.13
+[0m21:08:09.778641 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m21:08:09.778887 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'ba3780f5-9490-4f0a-a9ee-54c559a6712b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112ec36d0>]}
+[0m21:08:10.225956 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'listings' in the 'models' section of file 'models/bronze/source.yml'
+[0m21:08:10.293693 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Invalid test config given in models/silver/models.yml:
+  	test definition dictionary must have exactly one key, got [('dbt_expectations.expect_column_values_to_be_between', None), ('min_value', 0)] instead (2 keys)
+  	@: UnparsedModelUpdate(original_file_path='mode...ne)
+[0m21:08:10.295345 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.85526115, "process_user_time": 1.465095, "process_kernel_time": 0.197728, "process_mem_max_rss": "120111104", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m21:08:10.295835 [debug] [MainThread]: Command `dbt run` failed at 21:08:10.295715 after 0.86 seconds
+[0m21:08:10.296149 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11237c350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11300c6d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11237cd50>]}
+[0m21:08:10.296401 [debug] [MainThread]: Flushing usage events
+[0m21:09:30.100847 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11462ca90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1145f1ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114641750>]}
+
+
+============================== 21:09:30.103268 | cb91a222-f4f4-4f5f-96f7-a014cb4e69c4 ==============================
+[0m21:09:30.103268 [info ] [MainThread]: Running with dbt=1.7.13
+[0m21:09:30.103626 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/marcela.garcia/.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/Users/marcela.garcia/Documents/GitHub/analytics-engineering-project/dbt/analytics_eng_airbnb/logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt run', 'send_anonymous_usage_stats': 'True'}
+[0m21:09:30.238827 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'cb91a222-f4f4-4f5f-96f7-a014cb4e69c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11462fc10>]}
+[0m21:09:30.299545 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'cb91a222-f4f4-4f5f-96f7-a014cb4e69c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1145bbd10>]}
+[0m21:09:30.300173 [info ] [MainThread]: Registered adapter: postgres=1.7.13
+[0m21:09:30.309398 [debug] [MainThread]: checksum: 6c24e2ee36a42cedd7e5de2827d214776eb7a8e8f425f6d8acb06c31add0afef, vars: {}, profile: , target: , version: 1.7.13
+[0m21:09:30.309957 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m21:09:30.310196 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'cb91a222-f4f4-4f5f-96f7-a014cb4e69c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114f24990>]}
+[0m21:09:30.763986 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'listings' in the 'models' section of file 'models/bronze/source.yml'
+[0m21:09:30.829494 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Invalid test config given in models/silver/models.yml:
+  	test definition dictionary must have exactly one key, got [('dbt_expectations.expect_column_values_to_be_between', None), ('min_value', 0)] instead (2 keys)
+  	@: UnparsedModelUpdate(original_file_path='mode...ne)
+[0m21:09:30.830667 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.7739799, "process_user_time": 1.487117, "process_kernel_time": 0.169068, "process_mem_max_rss": "121176064", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m21:09:30.831037 [debug] [MainThread]: Command `dbt run` failed at 21:09:30.830959 after 0.77 seconds
+[0m21:09:30.831272 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114640350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1154ece90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11550a390>]}
+[0m21:09:30.831497 [debug] [MainThread]: Flushing usage events

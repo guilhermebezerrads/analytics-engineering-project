@@ -1,0 +1,21 @@
+
+version: 2
+
+models:
+  - name: listings_silver
+    description: "A starter dbt model"
+    database: myDBProject
+    schema: public
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+        - unique
+        - not_null
+      - name: number_of_reviews
+        description: "XXXXX"
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+            min_value: 0 
+
+
