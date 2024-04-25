@@ -1,11 +1,5 @@
-with source_listings_info as (
-    select * from {{source('listings','listings')}}
-),
-final as
-(
-    select *
-    from listings
+{{ config(order=1) }}
+with source_listings as (
+    select * from {{source('listings_raw','listings_raw')}}
 )
-
-
-select * from final
+select * from source_listings

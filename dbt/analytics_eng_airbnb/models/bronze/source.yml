@@ -1,13 +1,11 @@
-
 version: 2
 
-models:
-  - name: listings
-    description: "A starter dbt model"
+sources:
+  - name: listings_raw
+    description: 'Dados Brutos - Listing - Airbnb'
     database: myDBProject
     schema: public
-    columns:
-      - name: id
-        description: "The primary key for this table"
-
-
+    tables:
+      - name: listings_raw
+        description: 'Dados Brutos - Listing - Airbnb'
+        
