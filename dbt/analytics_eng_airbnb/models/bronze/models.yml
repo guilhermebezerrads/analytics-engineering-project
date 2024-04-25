@@ -167,26 +167,27 @@ models:
     description: "Reviews - Bronze"
     database: myDBProject
     schema: public
+    
     columns:
       - name: listing_id
-      description: "The ID of the listing"
-      tests:
-        - not_null
-        - accepted_values:
-            values: "{{ ref('listings_bronze') }}.id"
-      foreign_key:
-        to: "{{ ref('listings_bronze') }}"
-        field: id
+        description: "The ID of the listing"
+        constraints:
+          - type: foreign_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('listings_bronze')
+              field: id
       - name: id
         description: "The primary key for this table"
+        constraints:
+          - type: primary_key
         tests:
           - unique
           - not_null
         unique_key: true
       - name: date
         description: "The date of the review"
-        tests:
-          - type: date
       - name: reviewer_id
         description: "The ID of the reviewer"
         tests:
@@ -196,26 +197,24 @@ models:
       - name: comments
         description: "Comments of the review"
 
-
-- name: calendar_bronze
+  - name: calendar_bronze
     description: "Calendar - Bronze"
     database: myDBProject
     schema: public
     columns:
       - name: listing_id
         description: "The ID of the listing"
+        constraints:
+          - type: foreign_key
         tests:
           - not_null
-          - accepted_values:
-              values: "{{ ref('listings_bronze') }}.id"
-        foreign_key:
-          to: "{{ ref('listings_bronze') }}"
-          field: id
+          - relationships:
+              to: ref('listings_bronze')
+              field: id
       - name: date
         description: "The date of the calendar entry"
         tests:
           - not_null
-          - type: date
       - name: available
         description: "Availability status"
       - name: price
