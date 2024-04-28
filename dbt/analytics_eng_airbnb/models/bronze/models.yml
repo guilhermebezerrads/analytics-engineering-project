@@ -4,7 +4,7 @@ version: 2
 models:
   - name: listings_bronze
     description: "Listings - Bronze"
-    database: myDBProject
+    database: airbnb_project
     schema: public
     columns:
       - name: id
@@ -165,7 +165,7 @@ models:
 
   - name: reviews_bronze
     description: "Reviews - Bronze"
-    database: myDBProject
+    database: airbnb_project
     schema: public
     
     columns:
@@ -199,7 +199,7 @@ models:
 
   - name: calendar_bronze
     description: "Calendar - Bronze"
-    database: myDBProject
+    database: airbnb_project
     schema: public
     columns:
       - name: listing_id

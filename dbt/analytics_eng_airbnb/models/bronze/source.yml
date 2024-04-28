@@ -3,21 +3,21 @@ version: 2
 sources:
   - name: listings_raw
     description: 'Dados Brutos - Listing - Airbnb'
-    database: myDBProject
+    database: airbnb_project
     schema: public
     tables:
       - name: listings_raw
         description: 'Dados Brutos - Listing - Airbnb'
   - name: reviews_raw
     description: 'Dados Brutos - Reviews - Airbnb'
-    database: myDBProject
+    database: airbnb_project
     schema: public
     tables:
       - name: reviews_raw
         description: 'Dados Brutos - Reviews - Airbnb'
   - name: calendar_raw
     description: 'Dados Brutos - Calendar - Airbnb'
-    database: myDBProject
+    database: airbnb_project
     schema: public
     tables:
       - name: calendar_raw
