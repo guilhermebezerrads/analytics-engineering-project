@@ -10,7 +10,7 @@ source_reviews_cleaned as (
         CAST(date AS DATE) AS date,
         reviewer_id,
         reviewer_name, 
-        REGEXP_REPLACE(comments, '<br/>', ' ') as cleaned_comments
+        REPLACE(comments, '<br/>', ' ') as comments
     from source_reviews
 ),
 
@@ -21,7 +21,7 @@ final as (
         date,
         reviewer_id,
         reviewer_name, 
-        cleaned_comments
+        comments
     from source_reviews_cleaned)
 
 select * from final

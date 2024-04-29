@@ -12224,3 +12224,903 @@ select  listing_id,
 from source_calendar
   );
   
+[0m23:25:36.840498 [debug] [Thread-1 (]: SQL status: SELECT 13145595 in 60.0 seconds
+[0m23:25:36.916498 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:25:36.917499 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.calendar_silver"} */
+alter table "airbnb_project"."public"."calendar_silver" rename to "calendar_silver__dbt_backup"
+[0m23:25:37.930369 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 1.0 seconds
+[0m23:25:37.936369 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:25:37.937368 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.calendar_silver"} */
+alter table "airbnb_project"."public"."calendar_silver__dbt_tmp" rename to "calendar_silver"
+[0m23:25:37.939371 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m23:25:37.970375 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: COMMIT
+[0m23:25:37.971368 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:25:37.972367 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: COMMIT
+[0m23:25:37.975367 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m23:25:37.986371 [debug] [Thread-1 (]: Applying DROP to: "airbnb_project"."public"."calendar_silver__dbt_backup"
+[0m23:25:37.994372 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:25:37.995370 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.calendar_silver"} */
+drop table if exists "airbnb_project"."public"."calendar_silver__dbt_backup" cascade
+[0m23:25:38.093366 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m23:25:38.095367 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.calendar_silver (execute): 23:24:36.895278 => 23:25:38.095367
+[0m23:25:38.096365 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: Close
+[0m23:25:38.098366 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ab76d77d-e1c5-46db-b1e4-83c6e03ff11d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000173AF12EA50>]}
+[0m23:25:38.099366 [info ] [Thread-1 (]: 1 of 3 OK created sql table model public.calendar_silver ....................... [[32mSELECT 13145595[0m in 61.22s]
+[0m23:25:38.101366 [debug] [Thread-1 (]: Finished running node model.analytics_eng_airbnb.calendar_silver
+[0m23:25:38.102371 [debug] [Thread-1 (]: Began running node model.analytics_eng_airbnb.listings_silver
+[0m23:25:38.103365 [info ] [Thread-1 (]: 2 of 3 START sql table model public.listings_silver ............................ [RUN]
+[0m23:25:38.105367 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.analytics_eng_airbnb.calendar_silver, now model.analytics_eng_airbnb.listings_silver)
+[0m23:25:38.106368 [debug] [Thread-1 (]: Began compiling node model.analytics_eng_airbnb.listings_silver
+[0m23:25:38.111368 [debug] [Thread-1 (]: Writing injected SQL for node "model.analytics_eng_airbnb.listings_silver"
+[0m23:25:38.114371 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.listings_silver (compile): 23:25:38.107368 => 23:25:38.113367
+[0m23:25:38.115369 [debug] [Thread-1 (]: Began executing node model.analytics_eng_airbnb.listings_silver
+[0m23:25:38.122369 [debug] [Thread-1 (]: Writing runtime sql for node "model.analytics_eng_airbnb.listings_silver"
+[0m23:25:38.123364 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:25:38.125369 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: BEGIN
+[0m23:25:38.126367 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:25:38.183367 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m23:25:38.184365 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:25:38.185363 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.listings_silver"} */
+
+  
+    
+
+  create  table "airbnb_project"."public"."listings_silver__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+with source_listings as (
+    select * from "airbnb_project"."public"."listings_bronze"
+)
+select * from source_listings
+  );
+  
+[0m23:25:39.091584 [debug] [Thread-1 (]: SQL status: SELECT 36008 in 1.0 seconds
+[0m23:25:39.095589 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:25:39.095589 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.listings_silver"} */
+alter table "airbnb_project"."public"."listings_silver" rename to "listings_silver__dbt_backup"
+[0m23:25:39.097585 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m23:25:39.101586 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:25:39.101586 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.listings_silver"} */
+alter table "airbnb_project"."public"."listings_silver__dbt_tmp" rename to "listings_silver"
+[0m23:25:39.103587 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m23:25:39.106584 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: COMMIT
+[0m23:25:39.107584 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:25:39.107584 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: COMMIT
+[0m23:25:39.119681 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m23:25:39.124675 [debug] [Thread-1 (]: Applying DROP to: "airbnb_project"."public"."listings_silver__dbt_backup"
+[0m23:25:39.126676 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:25:39.127678 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.listings_silver"} */
+drop table if exists "airbnb_project"."public"."listings_silver__dbt_backup" cascade
+[0m23:25:39.142675 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m23:25:39.144676 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.listings_silver (execute): 23:25:38.116371 => 23:25:39.144676
+[0m23:25:39.145676 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: Close
+[0m23:25:39.146678 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ab76d77d-e1c5-46db-b1e4-83c6e03ff11d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000173AF3B7C20>]}
+[0m23:25:39.147678 [info ] [Thread-1 (]: 2 of 3 OK created sql table model public.listings_silver ....................... [[32mSELECT 36008[0m in 1.04s]
+[0m23:25:39.148680 [debug] [Thread-1 (]: Finished running node model.analytics_eng_airbnb.listings_silver
+[0m23:25:39.149682 [debug] [Thread-1 (]: Began running node model.analytics_eng_airbnb.reviews_silver
+[0m23:25:39.150677 [info ] [Thread-1 (]: 3 of 3 START sql table model public.reviews_silver ............................. [RUN]
+[0m23:25:39.151676 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.analytics_eng_airbnb.listings_silver, now model.analytics_eng_airbnb.reviews_silver)
+[0m23:25:39.152677 [debug] [Thread-1 (]: Began compiling node model.analytics_eng_airbnb.reviews_silver
+[0m23:25:39.155675 [debug] [Thread-1 (]: Writing injected SQL for node "model.analytics_eng_airbnb.reviews_silver"
+[0m23:25:39.157674 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.reviews_silver (compile): 23:25:39.152677 => 23:25:39.157674
+[0m23:25:39.158675 [debug] [Thread-1 (]: Began executing node model.analytics_eng_airbnb.reviews_silver
+[0m23:25:39.162679 [debug] [Thread-1 (]: Writing runtime sql for node "model.analytics_eng_airbnb.reviews_silver"
+[0m23:25:39.164677 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:25:39.165679 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: BEGIN
+[0m23:25:39.166678 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:25:39.213680 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m23:25:39.214676 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:25:39.214676 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.reviews_silver"} */
+
+  
+    
+
+  create  table "airbnb_project"."public"."reviews_silver__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+with source_reviews as (
+    select * from "airbnb_project"."public"."reviews_bronze"
+),
+
+source_reviews_cleaned as (
+    select 
+        id,
+        listing_id,
+        CAST(date AS DATE) AS date,
+        reviewer_id,
+        reviewer_name, 
+        REGEXP_REPLACE(comments, '<br/>', '') as cleaned_comments
+    from source_reviews
+),
+
+final as (
+    select 
+        id,
+        listing_id,
+        date,
+        reviewer_id,
+        reviewer_name, 
+        cleaned_comments
+    from source_reviews_cleaned)
+
+select * from final
+  );
+  
+[0m23:25:45.078511 [debug] [Thread-1 (]: SQL status: SELECT 703796 in 6.0 seconds
+[0m23:25:45.081513 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:25:45.082511 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.reviews_silver"} */
+alter table "airbnb_project"."public"."reviews_silver" rename to "reviews_silver__dbt_backup"
+[0m23:25:45.083513 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m23:25:45.087513 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:25:45.088514 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.reviews_silver"} */
+alter table "airbnb_project"."public"."reviews_silver__dbt_tmp" rename to "reviews_silver"
+[0m23:25:45.090515 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m23:25:45.093514 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: COMMIT
+[0m23:25:45.093514 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:25:45.094515 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: COMMIT
+[0m23:25:45.104238 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m23:25:45.109243 [debug] [Thread-1 (]: Applying DROP to: "airbnb_project"."public"."reviews_silver__dbt_backup"
+[0m23:25:45.110240 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:25:45.111240 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.reviews_silver"} */
+drop table if exists "airbnb_project"."public"."reviews_silver__dbt_backup" cascade
+[0m23:25:45.137241 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m23:25:45.139242 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.reviews_silver (execute): 23:25:39.158675 => 23:25:45.139242
+[0m23:25:45.140240 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: Close
+[0m23:25:45.141240 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ab76d77d-e1c5-46db-b1e4-83c6e03ff11d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000173AEED7170>]}
+[0m23:25:45.142243 [info ] [Thread-1 (]: 3 of 3 OK created sql table model public.reviews_silver ........................ [[32mSELECT 703796[0m in 5.99s]
+[0m23:25:45.144247 [debug] [Thread-1 (]: Finished running node model.analytics_eng_airbnb.reviews_silver
+[0m23:25:45.146240 [debug] [MainThread]: Using postgres connection "master"
+[0m23:25:45.147245 [debug] [MainThread]: On master: BEGIN
+[0m23:25:45.148241 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:25:45.197239 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m23:25:45.198242 [debug] [MainThread]: On master: COMMIT
+[0m23:25:45.199242 [debug] [MainThread]: Using postgres connection "master"
+[0m23:25:45.199242 [debug] [MainThread]: On master: COMMIT
+[0m23:25:45.200240 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m23:25:45.201241 [debug] [MainThread]: On master: Close
+[0m23:25:45.202240 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:25:45.203241 [debug] [MainThread]: Connection 'list_airbnb_project' was properly closed.
+[0m23:25:45.204243 [debug] [MainThread]: Connection 'list_airbnb_project_public' was properly closed.
+[0m23:25:45.204243 [debug] [MainThread]: Connection 'model.analytics_eng_airbnb.reviews_silver' was properly closed.
+[0m23:25:45.205240 [info ] [MainThread]: 
+[0m23:25:45.206238 [info ] [MainThread]: Finished running 3 table models in 0 hours 1 minutes and 8.53 seconds (68.53s).
+[0m23:25:45.207241 [debug] [MainThread]: Command end result
+[0m23:25:45.223240 [info ] [MainThread]: 
+[0m23:25:45.225246 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m23:25:45.226246 [info ] [MainThread]: 
+[0m23:25:45.227240 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+[0m23:25:45.229238 [debug] [MainThread]: Command `dbt run` succeeded at 23:25:45.229238 after 69.66 seconds
+[0m23:25:45.230241 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000173AE661280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000173AE3C0A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000173AE3C1940>]}
+[0m23:25:45.231242 [debug] [MainThread]: Flushing usage events
+[0m23:26:08.401691 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7D2238C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7D221CD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7D2206E0>]}
+
+
+============================== 23:26:08.406690 | ccf0dc8e-4e2e-440b-b303-2fbbcf2ec0ce ==============================
+[0m23:26:08.406690 [info ] [MainThread]: Running with dbt=1.7.13
+[0m23:26:08.407689 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Guilherme Bezerra\\.dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'C:\\Users\\Guilherme Bezerra\\Documents\\GitHub\\analytics-engineering-project\\dbt\\analytics_eng_airbnb\\logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt run --models silver', 'send_anonymous_usage_stats': 'True'}
+[0m23:26:08.654117 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ccf0dc8e-4e2e-440b-b303-2fbbcf2ec0ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7D221F10>]}
+[0m23:26:08.731113 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ccf0dc8e-4e2e-440b-b303-2fbbcf2ec0ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7D7417F0>]}
+[0m23:26:08.733113 [info ] [MainThread]: Registered adapter: postgres=1.7.13
+[0m23:26:08.758117 [debug] [MainThread]: checksum: 6c24e2ee36a42cedd7e5de2827d214776eb7a8e8f425f6d8acb06c31add0afef, vars: {}, profile: , target: , version: 1.7.13
+[0m23:26:09.038118 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m23:26:09.039113 [debug] [MainThread]: Partial parsing: updated file: analytics_eng_airbnb://models\silver\reviews_silver.sql
+[0m23:26:09.332054 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.analytics_eng_airbnb.gold
+[0m23:26:09.338049 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'ccf0dc8e-4e2e-440b-b303-2fbbcf2ec0ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7DD46180>]}
+[0m23:26:09.359051 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'ccf0dc8e-4e2e-440b-b303-2fbbcf2ec0ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7DAFBDA0>]}
+[0m23:26:09.359051 [info ] [MainThread]: Found 6 models, 27 tests, 6 sources, 0 exposures, 0 metrics, 805 macros, 0 groups, 0 semantic models
+[0m23:26:09.361051 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ccf0dc8e-4e2e-440b-b303-2fbbcf2ec0ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7DCEE660>]}
+[0m23:26:09.364047 [info ] [MainThread]: 
+[0m23:26:09.365048 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m23:26:09.367047 [debug] [ThreadPool]: Acquiring new postgres connection 'list_airbnb_project'
+[0m23:26:09.379052 [debug] [ThreadPool]: Using postgres connection "list_airbnb_project"
+[0m23:26:09.380051 [debug] [ThreadPool]: On list_airbnb_project: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "connection_name": "list_airbnb_project"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m23:26:09.380051 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:26:09.442049 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.0 seconds
+[0m23:26:09.443048 [debug] [ThreadPool]: On list_airbnb_project: Close
+[0m23:26:09.445049 [debug] [ThreadPool]: Acquiring new postgres connection 'list_airbnb_project_public'
+[0m23:26:09.452047 [debug] [ThreadPool]: Using postgres connection "list_airbnb_project_public"
+[0m23:26:09.452047 [debug] [ThreadPool]: On list_airbnb_project_public: BEGIN
+[0m23:26:09.453047 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:26:09.496050 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m23:26:09.496050 [debug] [ThreadPool]: Using postgres connection "list_airbnb_project_public"
+[0m23:26:09.497047 [debug] [ThreadPool]: On list_airbnb_project_public: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "connection_name": "list_airbnb_project_public"} */
+select
+      'airbnb_project' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'airbnb_project' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'airbnb_project' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m23:26:09.503053 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.0 seconds
+[0m23:26:09.505053 [debug] [ThreadPool]: On list_airbnb_project_public: ROLLBACK
+[0m23:26:09.506051 [debug] [ThreadPool]: On list_airbnb_project_public: Close
+[0m23:26:09.512046 [debug] [MainThread]: Using postgres connection "master"
+[0m23:26:09.513047 [debug] [MainThread]: On master: BEGIN
+[0m23:26:09.514047 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:26:09.558049 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m23:26:09.558049 [debug] [MainThread]: Using postgres connection "master"
+[0m23:26:09.559050 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m23:26:09.569053 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m23:26:09.571051 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ccf0dc8e-4e2e-440b-b303-2fbbcf2ec0ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7DCBECF0>]}
+[0m23:26:09.572051 [debug] [MainThread]: On master: ROLLBACK
+[0m23:26:09.573052 [debug] [MainThread]: Using postgres connection "master"
+[0m23:26:09.573052 [debug] [MainThread]: On master: BEGIN
+[0m23:26:09.575049 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m23:26:09.575049 [debug] [MainThread]: On master: COMMIT
+[0m23:26:09.576052 [debug] [MainThread]: Using postgres connection "master"
+[0m23:26:09.577051 [debug] [MainThread]: On master: COMMIT
+[0m23:26:09.578048 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m23:26:09.578048 [debug] [MainThread]: On master: Close
+[0m23:26:09.580050 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m23:26:09.580050 [info ] [MainThread]: 
+[0m23:26:09.585048 [debug] [Thread-1 (]: Began running node model.analytics_eng_airbnb.calendar_silver
+[0m23:26:09.585048 [info ] [Thread-1 (]: 1 of 3 START sql table model public.calendar_silver ............................ [RUN]
+[0m23:26:09.587053 [debug] [Thread-1 (]: Acquiring new postgres connection 'model.analytics_eng_airbnb.calendar_silver'
+[0m23:26:09.588048 [debug] [Thread-1 (]: Began compiling node model.analytics_eng_airbnb.calendar_silver
+[0m23:26:09.596050 [debug] [Thread-1 (]: Writing injected SQL for node "model.analytics_eng_airbnb.calendar_silver"
+[0m23:26:09.598049 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.calendar_silver (compile): 23:26:09.588048 => 23:26:09.598049
+[0m23:26:09.598049 [debug] [Thread-1 (]: Began executing node model.analytics_eng_airbnb.calendar_silver
+[0m23:26:09.641054 [debug] [Thread-1 (]: Writing runtime sql for node "model.analytics_eng_airbnb.calendar_silver"
+[0m23:26:09.643056 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:26:09.644054 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: BEGIN
+[0m23:26:09.645053 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m23:26:09.692054 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m23:26:09.693054 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:26:09.693054 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.calendar_silver"} */
+
+  
+    
+
+  create  table "airbnb_project"."public"."calendar_silver__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+with source_calendar as (
+    select * from "airbnb_project"."public"."calendar_bronze"
+)
+select  listing_id,
+        CAST(date AS DATE) AS date,
+        CASE 
+            WHEN available = 't' THEN TRUE
+            WHEN available = 'f' THEN FALSE
+            ELSE NULL 
+        END AS available,
+        CAST(REGEXP_REPLACE(REPLACE(price, ',', ''), '\$', '') AS FLOAT) as price,
+        CAST(minimum_nights AS int) as minimum_nights,
+        CAST(maximum_nights AS int) as maximum_nights
+from source_calendar
+  );
+  
+[0m23:27:32.579762 [debug] [Thread-1 (]: SQL status: SELECT 13145595 in 83.0 seconds
+[0m23:27:32.654769 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:27:32.656766 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.calendar_silver"} */
+alter table "airbnb_project"."public"."calendar_silver" rename to "calendar_silver__dbt_backup"
+[0m23:27:33.669360 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 1.0 seconds
+[0m23:27:33.673361 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:27:33.673361 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.calendar_silver"} */
+alter table "airbnb_project"."public"."calendar_silver__dbt_tmp" rename to "calendar_silver"
+[0m23:27:33.674359 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m23:27:33.694356 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: COMMIT
+[0m23:27:33.695357 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:27:33.696355 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: COMMIT
+[0m23:27:33.697361 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m23:27:33.704355 [debug] [Thread-1 (]: Applying DROP to: "airbnb_project"."public"."calendar_silver__dbt_backup"
+[0m23:27:33.709355 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:27:33.710355 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.calendar_silver"} */
+drop table if exists "airbnb_project"."public"."calendar_silver__dbt_backup" cascade
+[0m23:27:33.790355 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m23:27:33.792357 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.calendar_silver (execute): 23:26:09.599050 => 23:27:33.792357
+[0m23:27:33.794356 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: Close
+[0m23:27:33.795356 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ccf0dc8e-4e2e-440b-b303-2fbbcf2ec0ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7DDF4530>]}
+[0m23:27:33.797359 [info ] [Thread-1 (]: 1 of 3 OK created sql table model public.calendar_silver ....................... [[32mSELECT 13145595[0m in 84.21s]
+[0m23:27:33.798357 [debug] [Thread-1 (]: Finished running node model.analytics_eng_airbnb.calendar_silver
+[0m23:27:33.799356 [debug] [Thread-1 (]: Began running node model.analytics_eng_airbnb.listings_silver
+[0m23:27:33.800355 [info ] [Thread-1 (]: 2 of 3 START sql table model public.listings_silver ............................ [RUN]
+[0m23:27:33.801356 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.analytics_eng_airbnb.calendar_silver, now model.analytics_eng_airbnb.listings_silver)
+[0m23:27:33.802356 [debug] [Thread-1 (]: Began compiling node model.analytics_eng_airbnb.listings_silver
+[0m23:27:33.806356 [debug] [Thread-1 (]: Writing injected SQL for node "model.analytics_eng_airbnb.listings_silver"
+[0m23:27:33.808357 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.listings_silver (compile): 23:27:33.802356 => 23:27:33.807357
+[0m23:27:33.809364 [debug] [Thread-1 (]: Began executing node model.analytics_eng_airbnb.listings_silver
+[0m23:27:33.815358 [debug] [Thread-1 (]: Writing runtime sql for node "model.analytics_eng_airbnb.listings_silver"
+[0m23:27:33.817357 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:27:33.817357 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: BEGIN
+[0m23:27:33.818356 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:27:33.879356 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m23:27:33.880356 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:27:33.880356 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.listings_silver"} */
+
+  
+    
+
+  create  table "airbnb_project"."public"."listings_silver__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+with source_listings as (
+    select * from "airbnb_project"."public"."listings_bronze"
+)
+select * from source_listings
+  );
+  
+[0m23:27:34.732418 [debug] [Thread-1 (]: SQL status: SELECT 36008 in 1.0 seconds
+[0m23:27:34.736421 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:27:34.736421 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.listings_silver"} */
+alter table "airbnb_project"."public"."listings_silver" rename to "listings_silver__dbt_backup"
+[0m23:27:35.755776 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 1.0 seconds
+[0m23:27:35.758772 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:27:35.759772 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.listings_silver"} */
+alter table "airbnb_project"."public"."listings_silver__dbt_tmp" rename to "listings_silver"
+[0m23:27:35.760774 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m23:27:35.763772 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: COMMIT
+[0m23:27:35.764773 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:27:35.764773 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: COMMIT
+[0m23:27:35.766774 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m23:27:35.769774 [debug] [Thread-1 (]: Applying DROP to: "airbnb_project"."public"."listings_silver__dbt_backup"
+[0m23:27:35.770772 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:27:35.771774 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.listings_silver"} */
+drop table if exists "airbnb_project"."public"."listings_silver__dbt_backup" cascade
+[0m23:27:35.783775 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m23:27:35.785778 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.listings_silver (execute): 23:27:33.810361 => 23:27:35.785778
+[0m23:27:35.786779 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: Close
+[0m23:27:35.787780 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ccf0dc8e-4e2e-440b-b303-2fbbcf2ec0ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7DB31100>]}
+[0m23:27:35.788775 [info ] [Thread-1 (]: 2 of 3 OK created sql table model public.listings_silver ....................... [[32mSELECT 36008[0m in 1.99s]
+[0m23:27:35.789775 [debug] [Thread-1 (]: Finished running node model.analytics_eng_airbnb.listings_silver
+[0m23:27:35.820272 [debug] [Thread-1 (]: Began running node model.analytics_eng_airbnb.reviews_silver
+[0m23:27:35.821274 [info ] [Thread-1 (]: 3 of 3 START sql table model public.reviews_silver ............................. [RUN]
+[0m23:27:35.823273 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.analytics_eng_airbnb.listings_silver, now model.analytics_eng_airbnb.reviews_silver)
+[0m23:27:35.824273 [debug] [Thread-1 (]: Began compiling node model.analytics_eng_airbnb.reviews_silver
+[0m23:27:35.828272 [debug] [Thread-1 (]: Writing injected SQL for node "model.analytics_eng_airbnb.reviews_silver"
+[0m23:27:35.830272 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.reviews_silver (compile): 23:27:35.825273 => 23:27:35.829275
+[0m23:27:35.830272 [debug] [Thread-1 (]: Began executing node model.analytics_eng_airbnb.reviews_silver
+[0m23:27:35.837276 [debug] [Thread-1 (]: Writing runtime sql for node "model.analytics_eng_airbnb.reviews_silver"
+[0m23:27:35.839273 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:27:35.839273 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: BEGIN
+[0m23:27:35.840272 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:27:35.898329 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m23:27:35.899328 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:27:35.900329 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.reviews_silver"} */
+
+  
+    
+
+  create  table "airbnb_project"."public"."reviews_silver__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+with source_reviews as (
+    select * from "airbnb_project"."public"."reviews_bronze"
+),
+
+source_reviews_cleaned as (
+    select 
+        id,
+        listing_id,
+        CAST(date AS DATE) AS date,
+        reviewer_id,
+        reviewer_name, 
+        REGEXP_REPLACE(comments, '<br/>', ' ') as cleaned_comments
+    from source_reviews
+),
+
+final as (
+    select 
+        id,
+        listing_id,
+        date,
+        reviewer_id,
+        reviewer_name, 
+        cleaned_comments
+    from source_reviews_cleaned)
+
+select * from final
+  );
+  
+[0m23:27:43.629252 [debug] [Thread-1 (]: SQL status: SELECT 703796 in 8.0 seconds
+[0m23:27:43.633253 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:27:43.634254 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.reviews_silver"} */
+alter table "airbnb_project"."public"."reviews_silver" rename to "reviews_silver__dbt_backup"
+[0m23:27:44.647248 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 1.0 seconds
+[0m23:27:44.651260 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:27:44.652263 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.reviews_silver"} */
+alter table "airbnb_project"."public"."reviews_silver__dbt_tmp" rename to "reviews_silver"
+[0m23:27:44.653263 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m23:27:44.655261 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: COMMIT
+[0m23:27:44.655261 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:27:44.656261 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: COMMIT
+[0m23:27:44.659038 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m23:27:44.662049 [debug] [Thread-1 (]: Applying DROP to: "airbnb_project"."public"."reviews_silver__dbt_backup"
+[0m23:27:44.663049 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:27:44.664051 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.reviews_silver"} */
+drop table if exists "airbnb_project"."public"."reviews_silver__dbt_backup" cascade
+[0m23:27:44.754270 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m23:27:44.757275 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.reviews_silver (execute): 23:27:35.832273 => 23:27:44.757275
+[0m23:27:44.758273 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: Close
+[0m23:27:44.760271 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ccf0dc8e-4e2e-440b-b303-2fbbcf2ec0ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7D3FB590>]}
+[0m23:27:44.761270 [info ] [Thread-1 (]: 3 of 3 OK created sql table model public.reviews_silver ........................ [[32mSELECT 703796[0m in 8.94s]
+[0m23:27:44.763271 [debug] [Thread-1 (]: Finished running node model.analytics_eng_airbnb.reviews_silver
+[0m23:27:44.764270 [debug] [MainThread]: Using postgres connection "master"
+[0m23:27:44.765271 [debug] [MainThread]: On master: BEGIN
+[0m23:27:44.765271 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:27:44.819269 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m23:27:44.820272 [debug] [MainThread]: On master: COMMIT
+[0m23:27:44.821273 [debug] [MainThread]: Using postgres connection "master"
+[0m23:27:44.821273 [debug] [MainThread]: On master: COMMIT
+[0m23:27:44.822272 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m23:27:44.823271 [debug] [MainThread]: On master: Close
+[0m23:27:44.824271 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:27:44.825270 [debug] [MainThread]: Connection 'list_airbnb_project' was properly closed.
+[0m23:27:44.825270 [debug] [MainThread]: Connection 'list_airbnb_project_public' was properly closed.
+[0m23:27:44.826273 [debug] [MainThread]: Connection 'model.analytics_eng_airbnb.reviews_silver' was properly closed.
+[0m23:27:44.827271 [info ] [MainThread]: 
+[0m23:27:44.828270 [info ] [MainThread]: Finished running 3 table models in 0 hours 1 minutes and 35.46 seconds (95.46s).
+[0m23:27:44.829269 [debug] [MainThread]: Command end result
+[0m23:27:44.844270 [info ] [MainThread]: 
+[0m23:27:44.845272 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m23:27:44.846277 [info ] [MainThread]: 
+[0m23:27:44.848272 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+[0m23:27:44.851272 [debug] [MainThread]: Command `dbt run` succeeded at 23:27:44.850272 after 96.55 seconds
+[0m23:27:44.852272 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7D274C50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7D203170>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028A7CEA69F0>]}
+[0m23:27:44.853274 [debug] [MainThread]: Flushing usage events
+[0m23:28:48.489440 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF25B1700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF25B1E80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF25B2780>]}
+
+
+============================== 23:28:48.493437 | 0f9c2349-f7a0-48f8-b2f1-d206a4c43730 ==============================
+[0m23:28:48.493437 [info ] [MainThread]: Running with dbt=1.7.13
+[0m23:28:48.495440 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': 'C:\\Users\\Guilherme Bezerra\\.dbt', 'log_path': 'C:\\Users\\Guilherme Bezerra\\Documents\\GitHub\\analytics-engineering-project\\dbt\\analytics_eng_airbnb\\logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt run --models silver', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m23:28:48.787995 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '0f9c2349-f7a0-48f8-b2f1-d206a4c43730', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF29CB140>]}
+[0m23:28:48.891996 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '0f9c2349-f7a0-48f8-b2f1-d206a4c43730', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF2600AD0>]}
+[0m23:28:48.893996 [info ] [MainThread]: Registered adapter: postgres=1.7.13
+[0m23:28:48.924996 [debug] [MainThread]: checksum: 6c24e2ee36a42cedd7e5de2827d214776eb7a8e8f425f6d8acb06c31add0afef, vars: {}, profile: , target: , version: 1.7.13
+[0m23:28:49.240641 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m23:28:49.241643 [debug] [MainThread]: Partial parsing: updated file: analytics_eng_airbnb://models\silver\reviews_silver.sql
+[0m23:28:49.516642 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.analytics_eng_airbnb.gold
+[0m23:28:49.523640 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '0f9c2349-f7a0-48f8-b2f1-d206a4c43730', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF2F529C0>]}
+[0m23:28:49.545640 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '0f9c2349-f7a0-48f8-b2f1-d206a4c43730', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF2E21040>]}
+[0m23:28:49.545640 [info ] [MainThread]: Found 6 models, 27 tests, 6 sources, 0 exposures, 0 metrics, 805 macros, 0 groups, 0 semantic models
+[0m23:28:49.547641 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0f9c2349-f7a0-48f8-b2f1-d206a4c43730', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF2F2C260>]}
+[0m23:28:49.549640 [info ] [MainThread]: 
+[0m23:28:49.551641 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m23:28:49.553637 [debug] [ThreadPool]: Acquiring new postgres connection 'list_airbnb_project'
+[0m23:28:49.564639 [debug] [ThreadPool]: Using postgres connection "list_airbnb_project"
+[0m23:28:49.565639 [debug] [ThreadPool]: On list_airbnb_project: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "connection_name": "list_airbnb_project"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m23:28:49.566639 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:28:49.621509 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.0 seconds
+[0m23:28:49.623508 [debug] [ThreadPool]: On list_airbnb_project: Close
+[0m23:28:49.625508 [debug] [ThreadPool]: Acquiring new postgres connection 'list_airbnb_project_public'
+[0m23:28:49.631511 [debug] [ThreadPool]: Using postgres connection "list_airbnb_project_public"
+[0m23:28:49.632512 [debug] [ThreadPool]: On list_airbnb_project_public: BEGIN
+[0m23:28:49.633512 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:28:49.677080 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m23:28:49.678082 [debug] [ThreadPool]: Using postgres connection "list_airbnb_project_public"
+[0m23:28:49.678082 [debug] [ThreadPool]: On list_airbnb_project_public: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "connection_name": "list_airbnb_project_public"} */
+select
+      'airbnb_project' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'airbnb_project' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'airbnb_project' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m23:28:49.685081 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.0 seconds
+[0m23:28:49.687080 [debug] [ThreadPool]: On list_airbnb_project_public: ROLLBACK
+[0m23:28:49.688080 [debug] [ThreadPool]: On list_airbnb_project_public: Close
+[0m23:28:49.695083 [debug] [MainThread]: Using postgres connection "master"
+[0m23:28:49.696085 [debug] [MainThread]: On master: BEGIN
+[0m23:28:49.696085 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:28:49.744081 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m23:28:49.745082 [debug] [MainThread]: Using postgres connection "master"
+[0m23:28:49.746083 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m23:28:49.756080 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m23:28:49.757082 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0f9c2349-f7a0-48f8-b2f1-d206a4c43730', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF2B242C0>]}
+[0m23:28:49.758079 [debug] [MainThread]: On master: ROLLBACK
+[0m23:28:49.759081 [debug] [MainThread]: Using postgres connection "master"
+[0m23:28:49.760083 [debug] [MainThread]: On master: BEGIN
+[0m23:28:49.760083 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m23:28:49.761081 [debug] [MainThread]: On master: COMMIT
+[0m23:28:49.762081 [debug] [MainThread]: Using postgres connection "master"
+[0m23:28:49.762081 [debug] [MainThread]: On master: COMMIT
+[0m23:28:49.763082 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m23:28:49.764081 [debug] [MainThread]: On master: Close
+[0m23:28:49.765080 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m23:28:49.766081 [info ] [MainThread]: 
+[0m23:28:49.770081 [debug] [Thread-1 (]: Began running node model.analytics_eng_airbnb.calendar_silver
+[0m23:28:49.771083 [info ] [Thread-1 (]: 1 of 3 START sql table model public.calendar_silver ............................ [RUN]
+[0m23:28:49.773084 [debug] [Thread-1 (]: Acquiring new postgres connection 'model.analytics_eng_airbnb.calendar_silver'
+[0m23:28:49.773084 [debug] [Thread-1 (]: Began compiling node model.analytics_eng_airbnb.calendar_silver
+[0m23:28:49.782081 [debug] [Thread-1 (]: Writing injected SQL for node "model.analytics_eng_airbnb.calendar_silver"
+[0m23:28:49.783080 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.calendar_silver (compile): 23:28:49.774083 => 23:28:49.783080
+[0m23:28:49.783080 [debug] [Thread-1 (]: Began executing node model.analytics_eng_airbnb.calendar_silver
+[0m23:28:49.823084 [debug] [Thread-1 (]: Writing runtime sql for node "model.analytics_eng_airbnb.calendar_silver"
+[0m23:28:49.824085 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:28:49.825086 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: BEGIN
+[0m23:28:49.826084 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m23:28:49.868081 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m23:28:49.869080 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:28:49.870082 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.calendar_silver"} */
+
+  
+    
+
+  create  table "airbnb_project"."public"."calendar_silver__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+with source_calendar as (
+    select * from "airbnb_project"."public"."calendar_bronze"
+)
+select  listing_id,
+        CAST(date AS DATE) AS date,
+        CASE 
+            WHEN available = 't' THEN TRUE
+            WHEN available = 'f' THEN FALSE
+            ELSE NULL 
+        END AS available,
+        CAST(REGEXP_REPLACE(REPLACE(price, ',', ''), '\$', '') AS FLOAT) as price,
+        CAST(minimum_nights AS int) as minimum_nights,
+        CAST(maximum_nights AS int) as maximum_nights
+from source_calendar
+  );
+  
+[0m23:29:49.853230 [debug] [Thread-1 (]: SQL status: SELECT 13145595 in 60.0 seconds
+[0m23:29:49.913230 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:29:49.914229 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.calendar_silver"} */
+alter table "airbnb_project"."public"."calendar_silver" rename to "calendar_silver__dbt_backup"
+[0m23:29:50.926417 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 1.0 seconds
+[0m23:29:50.930416 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:29:50.931418 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.calendar_silver"} */
+alter table "airbnb_project"."public"."calendar_silver__dbt_tmp" rename to "calendar_silver"
+[0m23:29:50.932416 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m23:29:50.952419 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: COMMIT
+[0m23:29:50.953420 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:29:50.953420 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: COMMIT
+[0m23:29:50.955420 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m23:29:50.961414 [debug] [Thread-1 (]: Applying DROP to: "airbnb_project"."public"."calendar_silver__dbt_backup"
+[0m23:29:50.966414 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.calendar_silver"
+[0m23:29:50.967418 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.calendar_silver"} */
+drop table if exists "airbnb_project"."public"."calendar_silver__dbt_backup" cascade
+[0m23:29:51.040418 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m23:29:51.042414 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.calendar_silver (execute): 23:28:49.784081 => 23:29:51.042414
+[0m23:29:51.043415 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.calendar_silver: Close
+[0m23:29:51.044417 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0f9c2349-f7a0-48f8-b2f1-d206a4c43730', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF2F18980>]}
+[0m23:29:51.045417 [info ] [Thread-1 (]: 1 of 3 OK created sql table model public.calendar_silver ....................... [[32mSELECT 13145595[0m in 61.27s]
+[0m23:29:51.046420 [debug] [Thread-1 (]: Finished running node model.analytics_eng_airbnb.calendar_silver
+[0m23:29:51.047417 [debug] [Thread-1 (]: Began running node model.analytics_eng_airbnb.listings_silver
+[0m23:29:51.048416 [info ] [Thread-1 (]: 2 of 3 START sql table model public.listings_silver ............................ [RUN]
+[0m23:29:51.049417 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.analytics_eng_airbnb.calendar_silver, now model.analytics_eng_airbnb.listings_silver)
+[0m23:29:51.050417 [debug] [Thread-1 (]: Began compiling node model.analytics_eng_airbnb.listings_silver
+[0m23:29:51.054418 [debug] [Thread-1 (]: Writing injected SQL for node "model.analytics_eng_airbnb.listings_silver"
+[0m23:29:51.055416 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.listings_silver (compile): 23:29:51.051419 => 23:29:51.055416
+[0m23:29:51.056418 [debug] [Thread-1 (]: Began executing node model.analytics_eng_airbnb.listings_silver
+[0m23:29:51.060417 [debug] [Thread-1 (]: Writing runtime sql for node "model.analytics_eng_airbnb.listings_silver"
+[0m23:29:51.062417 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:29:51.062417 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: BEGIN
+[0m23:29:51.063417 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:29:51.119898 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m23:29:51.120897 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:29:51.121896 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.listings_silver"} */
+
+  
+    
+
+  create  table "airbnb_project"."public"."listings_silver__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+with source_listings as (
+    select * from "airbnb_project"."public"."listings_bronze"
+)
+select * from source_listings
+  );
+  
+[0m23:29:51.835475 [debug] [Thread-1 (]: SQL status: SELECT 36008 in 1.0 seconds
+[0m23:29:51.839474 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:29:51.840475 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.listings_silver"} */
+alter table "airbnb_project"."public"."listings_silver" rename to "listings_silver__dbt_backup"
+[0m23:29:51.842476 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m23:29:51.845476 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:29:51.846477 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.listings_silver"} */
+alter table "airbnb_project"."public"."listings_silver__dbt_tmp" rename to "listings_silver"
+[0m23:29:51.847476 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m23:29:51.851475 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: COMMIT
+[0m23:29:51.851475 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:29:51.852478 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: COMMIT
+[0m23:29:51.863690 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m23:29:51.866691 [debug] [Thread-1 (]: Applying DROP to: "airbnb_project"."public"."listings_silver__dbt_backup"
+[0m23:29:51.867689 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.listings_silver"
+[0m23:29:51.868689 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.listings_silver"} */
+drop table if exists "airbnb_project"."public"."listings_silver__dbt_backup" cascade
+[0m23:29:51.883689 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m23:29:51.885689 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.listings_silver (execute): 23:29:51.057417 => 23:29:51.885689
+[0m23:29:51.885689 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.listings_silver: Close
+[0m23:29:51.886689 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0f9c2349-f7a0-48f8-b2f1-d206a4c43730', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF2E53200>]}
+[0m23:29:51.887692 [info ] [Thread-1 (]: 2 of 3 OK created sql table model public.listings_silver ....................... [[32mSELECT 36008[0m in 0.84s]
+[0m23:29:51.890693 [debug] [Thread-1 (]: Finished running node model.analytics_eng_airbnb.listings_silver
+[0m23:29:51.890693 [debug] [Thread-1 (]: Began running node model.analytics_eng_airbnb.reviews_silver
+[0m23:29:51.891691 [info ] [Thread-1 (]: 3 of 3 START sql table model public.reviews_silver ............................. [RUN]
+[0m23:29:51.892692 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.analytics_eng_airbnb.listings_silver, now model.analytics_eng_airbnb.reviews_silver)
+[0m23:29:51.893691 [debug] [Thread-1 (]: Began compiling node model.analytics_eng_airbnb.reviews_silver
+[0m23:29:51.896691 [debug] [Thread-1 (]: Writing injected SQL for node "model.analytics_eng_airbnb.reviews_silver"
+[0m23:29:51.898693 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.reviews_silver (compile): 23:29:51.893691 => 23:29:51.897690
+[0m23:29:51.898693 [debug] [Thread-1 (]: Began executing node model.analytics_eng_airbnb.reviews_silver
+[0m23:29:51.903688 [debug] [Thread-1 (]: Writing runtime sql for node "model.analytics_eng_airbnb.reviews_silver"
+[0m23:29:51.904693 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:29:51.905692 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: BEGIN
+[0m23:29:51.906693 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:29:51.954208 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m23:29:51.955206 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:29:51.956213 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.reviews_silver"} */
+
+  
+    
+
+  create  table "airbnb_project"."public"."reviews_silver__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+with source_reviews as (
+    select * from "airbnb_project"."public"."reviews_bronze"
+),
+
+source_reviews_cleaned as (
+    select 
+        id,
+        listing_id,
+        CAST(date AS DATE) AS date,
+        reviewer_id,
+        reviewer_name, 
+        REPLACE(comments, '<br/>', ' ') as comments
+    from source_reviews
+),
+
+final as (
+    select 
+        id,
+        listing_id,
+        date,
+        reviewer_id,
+        reviewer_name, 
+        comments
+    from source_reviews_cleaned)
+
+select * from final
+  );
+  
+[0m23:29:56.611076 [debug] [Thread-1 (]: SQL status: SELECT 703796 in 5.0 seconds
+[0m23:29:56.614075 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:29:56.615072 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.reviews_silver"} */
+alter table "airbnb_project"."public"."reviews_silver" rename to "reviews_silver__dbt_backup"
+[0m23:29:56.616075 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m23:29:56.620074 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:29:56.621075 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.reviews_silver"} */
+alter table "airbnb_project"."public"."reviews_silver__dbt_tmp" rename to "reviews_silver"
+[0m23:29:56.622077 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m23:29:56.624076 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: COMMIT
+[0m23:29:56.625078 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:29:56.626077 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: COMMIT
+[0m23:29:56.630075 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m23:29:56.633075 [debug] [Thread-1 (]: Applying DROP to: "airbnb_project"."public"."reviews_silver__dbt_backup"
+[0m23:29:56.634073 [debug] [Thread-1 (]: Using postgres connection "model.analytics_eng_airbnb.reviews_silver"
+[0m23:29:56.635075 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: /* {"app": "dbt", "dbt_version": "1.7.13", "profile_name": "analytics_eng_airbnb", "target_name": "dev", "node_id": "model.analytics_eng_airbnb.reviews_silver"} */
+drop table if exists "airbnb_project"."public"."reviews_silver__dbt_backup" cascade
+[0m23:29:56.664072 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m23:29:56.666075 [debug] [Thread-1 (]: Timing info for model.analytics_eng_airbnb.reviews_silver (execute): 23:29:51.899690 => 23:29:56.665072
+[0m23:29:56.666075 [debug] [Thread-1 (]: On model.analytics_eng_airbnb.reviews_silver: Close
+[0m23:29:56.667074 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0f9c2349-f7a0-48f8-b2f1-d206a4c43730', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF2E521E0>]}
+[0m23:29:56.668073 [info ] [Thread-1 (]: 3 of 3 OK created sql table model public.reviews_silver ........................ [[32mSELECT 703796[0m in 4.77s]
+[0m23:29:56.670076 [debug] [Thread-1 (]: Finished running node model.analytics_eng_airbnb.reviews_silver
+[0m23:29:56.672075 [debug] [MainThread]: Using postgres connection "master"
+[0m23:29:56.673076 [debug] [MainThread]: On master: BEGIN
+[0m23:29:56.674077 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:29:56.724075 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m23:29:56.725077 [debug] [MainThread]: On master: COMMIT
+[0m23:29:56.726081 [debug] [MainThread]: Using postgres connection "master"
+[0m23:29:56.727083 [debug] [MainThread]: On master: COMMIT
+[0m23:29:56.727083 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m23:29:56.728074 [debug] [MainThread]: On master: Close
+[0m23:29:56.729074 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:29:56.730075 [debug] [MainThread]: Connection 'list_airbnb_project' was properly closed.
+[0m23:29:56.730075 [debug] [MainThread]: Connection 'list_airbnb_project_public' was properly closed.
+[0m23:29:56.731075 [debug] [MainThread]: Connection 'model.analytics_eng_airbnb.reviews_silver' was properly closed.
+[0m23:29:56.732076 [info ] [MainThread]: 
+[0m23:29:56.732076 [info ] [MainThread]: Finished running 3 table models in 0 hours 1 minutes and 7.18 seconds (67.18s).
+[0m23:29:56.735080 [debug] [MainThread]: Command end result
+[0m23:29:56.754076 [info ] [MainThread]: 
+[0m23:29:56.755079 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m23:29:56.756077 [info ] [MainThread]: 
+[0m23:29:56.758075 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+[0m23:29:56.761074 [debug] [MainThread]: Command `dbt run` succeeded at 23:29:56.760078 after 68.40 seconds
+[0m23:29:56.762075 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF1A40CE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF241F830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024BF247A660>]}
+[0m23:29:56.763078 [debug] [MainThread]: Flushing usage events
