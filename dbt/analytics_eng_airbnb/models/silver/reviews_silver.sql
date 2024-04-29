@@ -10,7 +10,7 @@ source_reviews_cleaned as (
         CAST(date AS DATE) AS date,
         reviewer_id,
         reviewer_name, 
-        REGEXP_REPLACE(comments, '<[^>]+>', '') as cleaned_comments
+        REGEXP_REPLACE(comments, '<br/>', ' ') as cleaned_comments
     from source_reviews
 ),
 
