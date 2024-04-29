@@ -3,9 +3,9 @@ with source_calendar as (
     select * from {{source('calendar_bronze','calendar_bronze')}}
 )
 select  listing_id,
-        date,
+        CAST(date AS DATE) AS date,
         available,
-        (REGEXP_REPLACE(price, '\$', '') AS FLOAT) as price,
+        CAST(REGEXP_REPLACE(REPLACE(price, ',', ''), '\$', '') AS FLOAT) as price,
         minimum_nights,
         maximum_nights
 from source_calendar
