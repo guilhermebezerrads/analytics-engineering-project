@@ -202,3 +202,104 @@ Happy modeling!
 [0m22:09:52.484321 [debug] [MainThread]: Command `dbt init` succeeded at 22:09:52.484321 after 41.08 seconds
 [0m22:09:52.485321 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A52FFCB380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A53026CC80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A53040D9D0>]}
 [0m22:09:52.485321 [debug] [MainThread]: Flushing usage events
+[0m12:48:57.082203 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114668dd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11467cbd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11467d590>]}
+
+
+============================== 12:48:57.085173 | 4267edec-9db9-47a8-8aea-70e6bba3fa54 ==============================
+[0m12:48:57.085173 [info ] [MainThread]: Running with dbt=1.7.13
+[0m12:48:57.085519 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/marcela.garcia/.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run --models bronze', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m12:48:57.085880 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/marcela.garcia/Documents/GitHub/analytics-engineering-project/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m12:48:57.086912 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.058522668, "process_user_time": 0.828878, "process_kernel_time": 0.152424, "process_mem_max_rss": "105054208", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m12:48:57.087238 [debug] [MainThread]: Command `dbt run` failed at 12:48:57.087158 after 0.06 seconds
+[0m12:48:57.087478 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104c80750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11466b290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114668dd0>]}
+[0m12:48:57.087690 [debug] [MainThread]: Flushing usage events
+[0m12:49:26.995201 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105e336d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105e7ccd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105e7d690>]}
+
+
+============================== 12:49:26.998464 | 28d286d6-776f-437b-9145-673ed31f11a0 ==============================
+[0m12:49:26.998464 [info ] [MainThread]: Running with dbt=1.7.13
+[0m12:49:26.998868 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': '/Users/marcela.garcia/.dbt', 'log_path': '/Users/marcela.garcia/Documents/GitHub/analytics-engineering-project/logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run --models bronze', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m12:49:27.267540 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '28d286d6-776f-437b-9145-673ed31f11a0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105e33590>]}
+[0m12:49:27.326600 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '28d286d6-776f-437b-9145-673ed31f11a0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106321110>]}
+[0m12:49:27.328202 [info ] [MainThread]: Registered adapter: postgres=1.7.13
+[0m12:49:27.332690 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found 1 package(s) specified in packages.yml, but only 0 package(s) installed in dbt_packages. Run "dbt deps" to install package dependencies.
+[0m12:49:27.334040 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.39442793, "process_user_time": 1.021792, "process_kernel_time": 0.168909, "process_mem_max_rss": "112984064", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m12:49:27.334465 [debug] [MainThread]: Command `dbt run` failed at 12:49:27.334382 after 0.39 seconds
+[0m12:49:27.334821 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105e68dd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1014cfb50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1014dc710>]}
+[0m12:49:27.335135 [debug] [MainThread]: Flushing usage events
+[0m12:50:36.425387 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b8889d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b940250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b940c10>]}
+
+
+============================== 12:50:36.427805 | 7af46cde-584a-48d1-bba0-f2b19dd0050a ==============================
+[0m12:50:36.427805 [info ] [MainThread]: Running with dbt=1.7.13
+[0m12:50:36.428167 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/marcela.garcia/.dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': '/Users/marcela.garcia/Documents/GitHub/analytics-engineering-project/logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt deps', 'send_anonymous_usage_stats': 'True'}
+[0m12:50:36.512543 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '7af46cde-584a-48d1-bba0-f2b19dd0050a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b901b90>]}
+[0m12:50:36.513108 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m12:50:36.513592 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m12:50:36.514525 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.13115595, "process_user_time": 0.858122, "process_kernel_time": 0.136332, "process_mem_max_rss": "106332160", "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m12:50:36.514897 [debug] [MainThread]: Command `dbt deps` succeeded at 12:50:36.514808 after 0.13 seconds
+[0m12:50:36.515126 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b940990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b942a50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1034b3f10>]}
+[0m12:50:36.515336 [debug] [MainThread]: Flushing usage events
+[0m12:50:51.811311 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1071ec210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1071efc90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1071eff50>]}
+
+
+============================== 12:50:51.813748 | 9cd2d9e1-1329-48be-8d5f-add8540ac22c ==============================
+[0m12:50:51.813748 [info ] [MainThread]: Running with dbt=1.7.13
+[0m12:50:51.814088 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': '/Users/marcela.garcia/Documents/GitHub/analytics-engineering-project/logs', 'fail_fast': 'False', 'profiles_dir': '/Users/marcela.garcia/.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt deps', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m12:50:51.896962 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '9cd2d9e1-1329-48be-8d5f-add8540ac22c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10726fe10>]}
+[0m12:50:51.897463 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m12:50:51.902407 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m12:50:51.903414 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.13292508, "process_user_time": 0.8634, "process_kernel_time": 0.135308, "process_mem_max_rss": "105594880", "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m12:50:51.903779 [debug] [MainThread]: Command `dbt deps` succeeded at 12:50:51.903689 after 0.13 seconds
+[0m12:50:51.904015 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1071b3c10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1071efe50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1071c27d0>]}
+[0m12:50:51.904233 [debug] [MainThread]: Flushing usage events
+[0m12:51:12.207088 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10752cc50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107540ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107541490>]}
+
+
+============================== 12:51:12.209458 | 77e8d15e-56dd-42f2-86c4-a0c0b43df767 ==============================
+[0m12:51:12.209458 [info ] [MainThread]: Running with dbt=1.7.13
+[0m12:51:12.209809 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/marcela.garcia/.dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': 'logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run --models bronze', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m12:51:12.210155 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/marcela.garcia/Documents/GitHub/analytics-engineering-project/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m12:51:12.211017 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.0414965, "process_user_time": 0.787378, "process_kernel_time": 0.111104, "process_mem_max_rss": "102793216", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m12:51:12.211342 [debug] [MainThread]: Command `dbt run` failed at 12:51:12.211266 after 0.04 seconds
+[0m12:51:12.211577 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10752fc90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10752fad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1037d4750>]}
+[0m12:51:12.211787 [debug] [MainThread]: Flushing usage events
+[0m12:51:23.478105 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106d2c150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10594d090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106d41290>]}
+
+
+============================== 12:51:23.480865 | ecc57d5e-8fb6-40cd-814f-7656faff3ff4 ==============================
+[0m12:51:23.480865 [info ] [MainThread]: Running with dbt=1.7.13
+[0m12:51:23.481244 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/marcela.garcia/.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': '/Users/marcela.garcia/Documents/GitHub/analytics-engineering-project/logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt run --models bronze', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m12:51:23.614004 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ecc57d5e-8fb6-40cd-814f-7656faff3ff4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1079e0910>]}
+[0m12:51:23.674668 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ecc57d5e-8fb6-40cd-814f-7656faff3ff4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107a1bc90>]}
+[0m12:51:23.675286 [info ] [MainThread]: Registered adapter: postgres=1.7.13
+[0m12:51:23.685272 [debug] [MainThread]: checksum: 6c24e2ee36a42cedd7e5de2827d214776eb7a8e8f425f6d8acb06c31add0afef, vars: {}, profile: , target: , version: 1.7.13
+[0m12:51:23.685885 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m12:51:23.686141 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'ecc57d5e-8fb6-40cd-814f-7656faff3ff4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107a0a190>]}
+[0m12:51:23.983907 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 3 unused configuration paths:
+- models.analytics_eng_airbnb.silver
+- models.analytics_eng_airbnb.bronze
+- models.analytics_eng_airbnb.gold
+[0m12:51:23.986491 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'ecc57d5e-8fb6-40cd-814f-7656faff3ff4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108b7e7d0>]}
+[0m12:51:23.993395 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'ecc57d5e-8fb6-40cd-814f-7656faff3ff4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1089e9250>]}
+[0m12:51:23.993668 [info ] [MainThread]: Found 0 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[0m12:51:23.993868 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ecc57d5e-8fb6-40cd-814f-7656faff3ff4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1032edb90>]}
+[0m12:51:23.994205 [warn ] [MainThread]: The selection criterion 'bronze' does not match any nodes
+[0m12:51:23.994688 [info ] [MainThread]: 
+[0m12:51:23.994886 [warn ] [MainThread]: Nothing to do. Try checking your model configs and model specification args
+[0m12:51:23.995169 [debug] [MainThread]: Command end result
+[0m12:51:23.999567 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 0.55992717, "process_user_time": 1.251721, "process_kernel_time": 0.156105, "process_mem_max_rss": "116506624", "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m12:51:23.999979 [debug] [MainThread]: Command `dbt run` succeeded at 12:51:23.999902 after 0.56 seconds
+[0m12:51:24.000256 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106d40350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106d408d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x100b7bad0>]}
+[0m12:51:24.000495 [debug] [MainThread]: Flushing usage events

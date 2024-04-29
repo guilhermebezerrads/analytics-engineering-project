@@ -7,7 +7,7 @@ final as (
     SELECT DISTINCT neighbourhood,
           AVG(price) as avg_price
     FROM source_listings_prices
-    GROUP BY neighbourhood;
+    GROUP BY neighbourhood
     ORDER BY avg_price DESC
 )
 

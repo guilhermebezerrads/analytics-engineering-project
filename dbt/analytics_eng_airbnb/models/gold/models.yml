@@ -48,10 +48,8 @@ models:
         tests:
           - unique
           - not_null
-          - dbt_expectations.expect_column_distinct_values_to_be_in_set:
-              value_set: ['sabado', 'domingo', 'segunda-feira', 'terca-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira']
 
-       - name: availability
+      - name: availability
         description: "Disponibilidade bruta"
         tests:
           - check_value_is_not_negative

@@ -1,0 +1,11 @@
+analytics_eng_airbnb:
+  target: default
+  outputs:
+    default:
+      type: postgres
+      host: 'localhost'
+      user: 'postgres'
+      password: '0125698741'
+      port: 5433
+      dbname: 'airbnb_project'
+      schema: 'public'
