@@ -54,6 +54,7 @@ models:
         tests:
           - check_value_is_not_negative
           - not_null
+          
   - name: comments_price_correlation_gold
     database: airbnb_project
     schema: public
