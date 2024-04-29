@@ -4,8 +4,13 @@ with source_calendar as (
 )
 select  listing_id,
         CAST(date AS DATE) AS date,
-        available,
+        CASE 
+            WHEN available = 't' THEN TRUE
+            WHEN available = 'f' THEN FALSE
+            ELSE NULL 
+        END AS available,
         CAST(REGEXP_REPLACE(REPLACE(price, ',', ''), '\$', '') AS FLOAT) as price,
-        minimum_nights,
-        maximum_nights
+        CAST(minimum_nights AS int) as minimum_nights,
+        CAST(maximum_nights AS int) as maximum_nights
 from source_calendar
+
