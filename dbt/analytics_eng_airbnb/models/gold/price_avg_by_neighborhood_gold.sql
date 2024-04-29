@@ -4,7 +4,7 @@ with source_listings_prices as (
 ),
 
 final as (
-    SELECT DISTINCT neighbourhood_cleansed as neighbourhood,
+    SELECT DISTINCT neighbourhood,
           AVG(price) as avg_price
     FROM listings_silver
     GROUP BY neighbourhood_cleansed;

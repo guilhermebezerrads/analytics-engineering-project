@@ -4,7 +4,7 @@ with source_listings_prices as (
 ),
 
 final as (
-    SELECT DISTINCT property_type,
+    SELECT DISTINCT room_type,
           AVG(price) as avg_price
     FROM listings_silver
     GROUP BY property_type;
