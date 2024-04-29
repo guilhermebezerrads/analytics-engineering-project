@@ -303,3 +303,19 @@ There are 3 unused configuration paths:
 [0m12:51:23.999979 [debug] [MainThread]: Command `dbt run` succeeded at 12:51:23.999902 after 0.56 seconds
 [0m12:51:24.000256 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106d40350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106d408d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x100b7bad0>]}
 [0m12:51:24.000495 [debug] [MainThread]: Flushing usage events
+[0m18:50:46.585380 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1129f2e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110c4cb90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112a40f90>]}
+
+
+============================== 18:50:46.588708 | 9d3574dc-46d7-4ac0-8cc9-7736a76717cf ==============================
+[0m18:50:46.588708 [info ] [MainThread]: Running with dbt=1.7.13
+[0m18:50:46.589061 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/Users/marcela.garcia/Documents/GitHub/analytics-engineering-project/logs', 'debug': 'False', 'profiles_dir': '/Users/marcela.garcia/.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt run --models bronze', 'send_anonymous_usage_stats': 'True'}
+[0m18:50:46.806700 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '9d3574dc-46d7-4ac0-8cc9-7736a76717cf', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1129f2350>]}
+[0m18:50:46.866323 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '9d3574dc-46d7-4ac0-8cc9-7736a76717cf', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1129d59d0>]}
+[0m18:50:46.867153 [info ] [MainThread]: Registered adapter: postgres=1.7.13
+[0m18:50:46.871506 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found 1 package(s) specified in packages.yml, but only 0 package(s) installed in dbt_packages. Run "dbt deps" to install package dependencies.
+[0m18:50:46.872917 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.34042796, "process_user_time": 1.000747, "process_kernel_time": 0.181024, "process_mem_max_rss": "112590848", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m18:50:46.873340 [debug] [MainThread]: Command `dbt run` failed at 18:50:46.873218 after 0.34 seconds
+[0m18:50:46.873717 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112a40d10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112a40d50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112a40dd0>]}
+[0m18:50:46.873997 [debug] [MainThread]: Flushing usage events
