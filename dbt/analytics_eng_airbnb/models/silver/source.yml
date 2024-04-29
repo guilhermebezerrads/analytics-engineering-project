@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: calendar_bronze
+    description: 'Fonte de dados Calendar - Bronze'
+    database: airbnb_project
+    schema: public
+    tables:
+      - name: calendar_bronze
+        description: 'Fonte de dados Calendar - Bronze'
+  - name: listings_bronze
+    description: 'Fonte de dados Listings - Bronze'
+    database: airbnb_project
+    schema: public
+    tables:
+      - name: listings_bronze
+        description: 'Fonte de dados Listings - Bronze'
+  - name: reviews_bronze
+    description: 'Fonte de dados Reviews - Bronze'
+    database: airbnb_project
+    schema: public
+    tables:
+      - name: reviews_bronze
+        description: 'Fonte de dados Reviews - Bronze'
