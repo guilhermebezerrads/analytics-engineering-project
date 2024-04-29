@@ -225,7 +225,3 @@ models:
         description: "Minimum number of nights"
       - name: maximum_nights
         description: "Maximum number of nights"
-      - name: PRIMARY_KEY
-        description: "Primary key constraint"
-        tests:
-          - unique

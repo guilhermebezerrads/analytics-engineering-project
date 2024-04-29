@@ -215,24 +215,24 @@ models:
         description: "The date of the calendar entry"
         tests:
           - not_null
-		  - type: date
       - name: available
         description: "Availability status"
-		tests:
+        tests:
           - not_null
-		  - type: boolean
       - name: price
         description: "Price of the listing"
-		tests: 
-			- not_null
-			- check_value_is_not_negative
+        tests: 
+          - not_null
+          - check_value_is_not_negative
       - name: minimum_nights
         description: "Minimum number of nights"
-		tests: 
-			- check_value_is_not_negative
-			- assertion: minimum_nights <= maximum_nights
+        tests: 
+            - check_value_is_not_negative
+            - assertion: 
+                sql: minimum_nights <= maximum_nights
       - name: maximum_nights
         description: "Maximum number of nights"
-		tests: 
-			- check_value_is_not_negative
-			- assertion: maximum_nights >= minimum_nights
+        tests: 
+          - check_value_is_not_negative
+          - assertion: 
+              sql: maximum_nights >= minimum_nights
