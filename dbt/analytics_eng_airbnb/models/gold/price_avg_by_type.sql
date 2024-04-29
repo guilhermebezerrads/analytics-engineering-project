@@ -6,7 +6,7 @@ with source_listings_prices as (
 final as (
     SELECT DISTINCT room_type,
           AVG(price) as avg_price
-    FROM listings_silver
+    FROM source_listings_prices
     GROUP BY room_type;
     ORDER BY avg_price DESC
 )
