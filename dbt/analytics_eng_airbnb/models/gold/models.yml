@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: price_avg_by_neighborhood_gold
+    database: airbnb_project
+    schema: public
+    description: "Camada gold da tabela de resultados com média de preço por bairro"
+    columns:
+      - name: neighborhood
+        description: "Identificador do bairro"
+        tests:
+          - unique
+          - not_null
+      - name: avg_price
+        description: "Média de preço"
+        tests:
+          - check_value_is_not_negative
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 30000 #triplo do valor atual mais alto
+
+  - name: price_avg_by_type_gold
+    database: airbnb_project
+    schema: public
+    description: "Camada gold da tabela de resultados com média de preço por tipo de propriedade"
+    columns:
+      - name: property_type
+        description: "Identificador do tipo de propriedade"
+        tests:
+          - unique
+          - not_null
+      - name: avg_price
+        description: "Média de preço"
+        tests:
+          - check_value_is_not_negative
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 30000 #triplo do valor atual mais alto

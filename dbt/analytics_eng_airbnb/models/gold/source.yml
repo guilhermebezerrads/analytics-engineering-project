@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: listings_silver
+    description: 'Fonte de dados das listagens do AirBnb - Silver'
+    database: airbnb_project
+    schema: public
+    tables:
+      - name: listings_silver
+        description: 'Dados brutos das listagens do AirBnb  na camada silver'
+  - name: calendar_silver
+    description: 'Fonte de dados do calendário do AirBnb - Silver'
+    database: airbnb_project
+    schema: public
+    tables:
+      - name: calendar_silver
+        description: 'Dados brutos do calendário do AirBnb na camada silver'
+  - name: reviews_silver
+    description: 'Fonte de dados das avaliações do AirBnb - Silver'
+    database: airbnb_project
+    schema: public
+    tables:
+      - name: reviews_silver
+        description: 'Dados brutos das avaliações do AirBnb na camada silver'
