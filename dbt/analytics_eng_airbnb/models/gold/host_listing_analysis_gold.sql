@@ -5,4 +5,4 @@ WITH source_listings_host AS (
     GROUP BY host_id
 )
 
-SELECT * FROM source_listings;
+SELECT * FROM source_listings_host

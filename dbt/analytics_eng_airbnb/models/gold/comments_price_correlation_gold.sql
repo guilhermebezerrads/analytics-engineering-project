@@ -8,7 +8,7 @@ final AS (
         id AS listing_id,
         number_of_reviews,
         price
-    FROM source_listings
+    FROM source_listings_correlation
 )
 
-SELECT * FROM final;
+SELECT * FROM final
