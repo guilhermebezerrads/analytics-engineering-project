@@ -38,6 +38,7 @@ models:
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 30000 #triplo do valor atual mais alto
+
   - name: most_available_by_weekday_gold
     database: airbnb_project
     schema: public
@@ -53,6 +54,48 @@ models:
 
        - name: availability
         description: "Disponibilidade bruta"
+        tests:
+          - check_value_is_not_negative
+          - not_null
+
+  - name: comments_price_correlation_gold
+    database: airbnb_project
+    schema: public
+    description: "Camada Gold da tabela de resultados com correlação entre número de comentários e preço"
+    columns:
+      - name: listing_id
+        description: "Identificador da listagem"
+        tests:
+          - unique
+          - not_null
+      - name: number_of_reviews
+        description: "Número de comentários"
+        tests:
+          - check_value_is_not_negative
+          - not_null
+    - name: price
+        description: "Preço da listagem"
+        tests:
+          - check_value_is_not_negative
+          - not_null
+
+  - name: host_listing_analysis_gold
+    database: airbnb_project
+    schema: public
+    description: "Camada Gold da tabela de resultados com análise de listagens do anfitrião e o preço médio"
+    columns:
+      - name: host_id
+        description: "Identificador do anfitrião"
+        tests:
+          - unique
+          - not_null
+      - name: total_listings
+        description: "Número total de listagens do anfitrião"
+        tests:
+          - check_value_is_not_negative
+          - not_null
+      - name: avg_listing_price
+        description: "Preço médio das listagens do anfitrião"
         tests:
           - check_value_is_not_negative
           - not_null
