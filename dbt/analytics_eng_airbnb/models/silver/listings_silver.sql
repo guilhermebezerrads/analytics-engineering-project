@@ -13,12 +13,13 @@ source_listings_cleaned as (
         room_type,
         CAST(REGEXP_REPLACE(REPLACE(price, ',', ''), '\$', '') AS FLOAT) as price,
         number_of_reviews,
-        last_review,
+        CAST(last_review AS DATE) AS last_review,
         reviews_per_month,
         calculated_host_listings_count,
         availability_365,
         number_of_reviews_ltm
     from source_listings
+    where number_of_reviews > 0
 ),
 
 final as (
